@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,32 +19,34 @@ function App() {
   return (
     <>
       <Router>
-        <div className='container'>
-          <Header />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/about' element={<About />} />
+        <Container>
+          <div className='container'>
+            <Header />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+              <Route path='/contact' element={<Contact />} />
+              <Route path='/about' element={<About />} />
 
-            <Route path='/new-ticket' element={<PrivateRoute />}>
-              <Route path='/new-ticket' element={<NewTicket />} />
-            </Route>
+              <Route path='/new-ticket' element={<PrivateRoute />}>
+                <Route path='/new-ticket' element={<NewTicket />} />
+              </Route>
 
-            <Route path='/ticket/:ticketId' element={<PrivateRoute />}>
-              <Route path='/ticket/:ticketId' element={<Ticket />} />
-            </Route>
+              <Route path='/ticket/:ticketId' element={<PrivateRoute />}>
+                <Route path='/ticket/:ticketId' element={<Ticket />} />
+              </Route>
 
-            <Route path='/tickets' element={<PrivateRoute />}>
-              <Route path='/tickets' element={<Tickets />} />
-            </Route>
+              <Route path='/tickets' element={<PrivateRoute />}>
+                <Route path='/tickets' element={<Tickets />} />
+              </Route>
 
-            <Route path='/admin' element={<PrivateRoute />}>
-              <Route path='/admin' element={<Admin />} />
-            </Route>
-          </Routes>
-        </div>
+              <Route path='/admin' element={<PrivateRoute />}>
+                <Route path='/admin' element={<Admin />} />
+              </Route>
+            </Routes>
+          </div>
+        </Container>
       </Router>
       <ToastContainer />
     </>
